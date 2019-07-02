@@ -1,3 +1,7 @@
+def map(source_array)
+ 
+end 
+
 
 #  i = 0
 #  while i < source_array.length do
