@@ -1,4 +1,4 @@
-leadef map(s)
+def map(s)
   new = []
   i = 0
   while i < s.length
