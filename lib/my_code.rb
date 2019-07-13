@@ -1,28 +1,24 @@
-def my_own_map(source_array)  
+leadef map(s)
   new = []
-  source_array.map{|element| element * -1}
+  i = 0
+  while i < s.length
+    new.push(yield(s[i]))
+    i += 1
+  end
+  new
 end
 
-def map_to_no_change(source_array)
-    source_array.map{|element| element}
-end 
-
-def map_to_double(source_array)
-  source_array.map {|element| element * 2}
-end 
-
-def map_to_square(source_array) 
-  source_array.map {|element| element ** 2}
-end 
-
-def reduce_to_total(source_array, starting_point = 0)
-  source_array.reduce(starting_point){|total, number| total + number}
-end 
-
-def reduce_to_all_true(source_array)
-  source_array.all? {|element| !!element}
-end 
-
-def reduce_to_any_true(source_array)
-  source_array.any? {|element| !!element}
-end 
+def reduce(s, sp=nil)
+  if sp
+    accum = sp
+    i = 0
+  else
+    accum = s[0]
+    i = 1
+  end
+  while i < s.length
+    accum = yield(accum, s[i])
+    i += 1
+  end
+  accum
+end
